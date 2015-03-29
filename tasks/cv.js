@@ -59,6 +59,7 @@ module.exports = function(grunt) {
                 if (_fs.existsSync(filepath_fs)) {
                     var data = _fs.readFileSync(filepath_fs);
                     var hash = _md5(data);
+                    hash = hash.substr(0, 30) + "00";
 
                     source = source.replace(match, "url('" + filepath + "?__cv=" + hash + "')");
 
