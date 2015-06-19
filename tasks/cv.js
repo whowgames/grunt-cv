@@ -41,7 +41,7 @@ module.exports = function(grunt) {
 
             var source = grunt.file.read(filepath);
 		
-            var pattern = /url\(.*?(gif|png|jpg|jpeg)['"]{0,1}\)/ig
+            var pattern = /url\(.*?['"]{0,1}\)/ig
 
             var matches = source.match(pattern);
 
