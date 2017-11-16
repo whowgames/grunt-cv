@@ -47,8 +47,11 @@ module.exports = function(grunt) {
                 for (var i in matches) {
                     var match = matches[i];
                     var orig = match;
-
-                    source = source.replace(orig, "url('" + module.exports.getCV(match, options.docroot) + "')");
+                    var newPath = module.exports.getCV(match, options.docroot);
+                    
+                    if (newPath) {
+                        source = source.replace(orig, "url('" + newPath + "')");
+                    }
                 }
 
                 grunt.file.write(f.dest, source);
@@ -64,7 +67,7 @@ module.exports.getCV = function(sourceFilePath, docroot) {
     }
 
     if (sourceFilePath.indexOf('?') === 1) {
-        return sourceFilePath;
+        return "";
     }
 
     var clean = sourceFilePath.replace('url(', '').replace(')', '').replace("'", '').replace("'", '').replace('"', '').replace('"', '');
@@ -81,5 +84,5 @@ module.exports.getCV = function(sourceFilePath, docroot) {
         return filepath + "?__cv=" + hash;
     }
 
-    return sourceFilePath;
+    return "";
 }
