@@ -1,7 +1,7 @@
 {
   "name": "grunt-cv",
   "description": "Appends __cv hash on all IMG URLs in CSS",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage": "https://github.com/whowgames/grunt-cv",
   "author": {
     "name": "Marko Kercmar",
